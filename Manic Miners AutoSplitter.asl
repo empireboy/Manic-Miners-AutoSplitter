@@ -1,7 +1,7 @@
 state("ManicMiners-Win64-Shipping")
 {
     // missionComplete changes between 1 and 4. The value is 4 whenever the mission complete popup is showing
-    int missionComplete : "ManicMiners-Win64-Shipping.exe", 0x02EEE860, 0x100, 0xF8, 0x160, 0x20, 0x2C8, 0x40, 0xE8;
+    int missionComplete : "ManicMiners-Win64-Shipping.exe", 0x02DDF718, 0x1928, 0x580, 0x348, 0x2C0, 0x28, 0x110, 0x3F0, 8;
 
     // missionStart changes between random numbers when the black screen before mission start pops up
     int missionStart : "ManicMiners-Win64-Shipping.exe", 0x02EE7098, 0x70, 0xF0, 0x30, 0x50, 0x2C8, 0x50, 0x11C;
