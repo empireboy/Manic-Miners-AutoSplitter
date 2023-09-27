@@ -1,7 +1,7 @@
 state("ManicMiners-Win64-Shipping")
 {
-    // missionComplete changes between 1 and 4. The value is 4 whenever the mission complete popup is showing
-    int missionComplete : "ManicMiners-Win64-Shipping.exe", 0x02DDF718, 0x1928, 0x580, 0x348, 0x2C0, 0x28, 0x110, 0x3F0, 8;
+    // missionComplete changes between random values when you press Finish or (Finish) Fast. The value is 2 lower than the previous value whenever you press the button
+    int missionComplete : "ManicMiners-Win64-Shipping.exe", 0x02CACC48, 0x88, 0x48, 0x0, 0x28, 0x58, 0x178, 0xC;
 
     // missionStart changes between random numbers when the black screen before mission start pops up
     int missionStart : "ManicMiners-Win64-Shipping.exe", 0x02EE7098, 0x70, 0xF0, 0x30, 0x50, 0x2C8, 0x50, 0x11C;
@@ -22,7 +22,10 @@ start
 
 split
 {
-    // Split whenever the mission complete screen pops up
-    if (current.missionComplete == 4 && current.missionComplete != old.missionComplete)
+    bool missionCompleteCondition =
+        current.missionComplete == old.missionComplete - 2 &&
+        current.missionComplete != old.missionComplete;
+
+    if (missionCompleteCondition)
         return true;
 }
