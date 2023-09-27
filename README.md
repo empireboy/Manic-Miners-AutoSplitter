@@ -7,8 +7,8 @@ Manic Miners is a [Lego Rock Raiders](https://en.wikipedia.org/wiki/Lego_Rock_Ra
 Do you have any questions? Feel free to join the [Manic Miners Discord](https://discord.com/channels/580269696369164299/1145630476137152523).
 
 ## Current features
-- Starts whenever you start any level.
-- Splits whenever the "Mission Complete" screen pops up.
+- Starts whenever you click on any level in the campaign menu.
+- Splits whenever you press Finish or (Finish) Fast.
 
 ## Links
 - [Manic Miners](https://manicminers.baraklava.com/)
