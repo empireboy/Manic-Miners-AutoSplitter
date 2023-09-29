@@ -5,6 +5,9 @@ state("ManicMiners-Win64-Shipping")
 
     // missionStart changes between random numbers when the black screen before mission start pops up
     int missionStart : "ManicMiners-Win64-Shipping.exe", 0x02EE7098, 0x70, 0xF0, 0x30, 0x50, 0x2C8, 0x50, 0x11C;
+
+    // missionStartInstructions changes from 3 to 4 whenever you press the play button in the instructions menu
+    int missionStartInstructions : "ManicMiners-Win64-Shipping.exe", 0x2AFC4A8;
 }
 
 start
@@ -16,6 +19,15 @@ start
         current.missionStart <= 100 &&
         current.missionStart > 0 &&
         current.missionStart != old.missionStart
+    )
+        return true;
+
+    // Starts the timer whenever you press play in the instructions menu
+    // Changes from 3 to 4 whenever you press the play button
+    if (
+        current.missionStartInstructions == 4 &&
+        old.missionStartInstructions == 3 &&
+        current.missionStartInstructions != old.missionStartInstructions
     )
         return true;
 }
