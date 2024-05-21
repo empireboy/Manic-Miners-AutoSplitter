@@ -7,7 +7,7 @@ Manic Miners is a [Lego Rock Raiders](https://en.wikipedia.org/wiki/Lego_Rock_Ra
 Do you have any questions? Feel free to join the [Manic Miners Discord](https://discord.com/channels/580269696369164299/1145630476137152523).
 
 ## Current features
-- There is a setting that let's you toggle between full game runs or level runs.
+- There is a setting that let's you toggle between full game runs and level runs.
 - Splits whenever you press Finish or (Finish) Fast.
 
 Full Game Run:
