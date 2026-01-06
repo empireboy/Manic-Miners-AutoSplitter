@@ -1,7 +1,13 @@
 state("ManicMiners-Win64-Shipping")
 {
-    // missionComplete changes between 1 and 4. The value is 4 whenever the mission complete popup is showing
-    int missionComplete : "ManicMiners-Win64-Shipping.exe", 0x02DDF718, 0x1928, 0x580, 0x348, 0x2C0, 0x28, 0x110, 0x3F0, 8;
+    // minersCount changes to 0 whenever you press Finish or Finish Fast
+    int minersCount : "ManicMiners-Win64-Shipping.exe", 0x2EDDED0, 0x118, 0xB08, 0x348;
+
+    // buildingsCount changes to 0 whenever you press Finish or Finish Fast
+    int buildingsCount : "ManicMiners-Win64-Shipping.exe", 0x2EDDED0, 0x118, 0xAD0, 0xAB0;
+
+    // inLevel is 5 whenever you are playing a level, otherwise its 0 (or any other value that it might randomly be)
+    int inLevel : "ManicMiners-Win64-Shipping.exe", 0x2EDDED0, 0x118, 0xAE0, 0x3A0;
 
     // missionStart changes between random numbers when the black screen before mission start pops up
     int missionStart : "ManicMiners-Win64-Shipping.exe", 0x02EE7098, 0x70, 0xF0, 0x30, 0x50, 0x2C8, 0x50, 0x11C;
@@ -44,7 +50,13 @@ start
 
 split
 {
-    // Split whenever the mission complete screen pops up
-    if (current.missionComplete == 4 && current.missionComplete != old.missionComplete)
+    if (old.inLevel != 5)
+        return false;
+
+    if (
+        current.minersCount == 0 &&
+        current.buildingsCount == 0 &&
+        (old.minersCount != 0 || old.buildingsCount != 0)
+    )
         return true;
 }
