@@ -16,10 +16,6 @@ Full Game Run:
 Level Run:
 - Starts whenever you click on the play button in the instructions menu of a specific level.
 
-## What if it doesn't auto split?
-
-There should be a small change that the memory addresses associated with the auto-splitter are not correct, in this case a restart of the game should fix it.
-
 ## Links
 - [Manic Miners](https://manicminers.baraklava.com/)
 - [Speedrun.com](https://www.speedrun.com/nl-NL/Manic_Miners)
